@@ -1,0 +1,53 @@
+global-variables:
+  - &clone
+    name: 克隆源码 🍵🐳
+    image: alpine/git
+    commands:
+    - git clone -b "$DRONE_BRANCH" "$DRONE_REMOTE_URL" .
+
+  - &build_code
+    name: 构建站点 🐬🌊
+    image: 
+      from_secret: cloud_image
+    pull: always
+    commands:
+    - ls -la
+    - ln -sfn /drone/node_modules node_modules
+    - npm run docs:build
+    - mv docs/.vuepress/dist sentry-go-handbook
+    - ls -la
+
+  - &deploy
+    name: 上云 ☁️🚢
+    image: appleboy/drone-scp
+    settings:
+      host:
+        from_secret: cloud_host
+      port:
+        from_secret: cloud_port
+      username:
+        from_secret: cloud_user
+      password:
+        from_secret: cloud_pw
+      target: /data/nfs/nginx-static/
+      source: sentry-go-handbook
+
+kind: pipeline
+type: kubernetes
+name: release
+
+clone:
+  disable: true
+
+steps:
+  - <<: *clone
+
+  - <<: *build_code
+
+  - <<: *deploy
+
+trigger:
+  branch:
+  - release/cloud
+  event:
+  - push
