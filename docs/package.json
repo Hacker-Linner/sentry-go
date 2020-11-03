@@ -1,0 +1,19 @@
+{
+  "name": "sentry-go-handbook",
+  "version": "0.0.1",
+  "description": "Sentry-Go SDK 中文实践指南",
+  "main": "index.js",
+  "authors": {
+    "name": "roy.wang",
+    "email": "roy.w.w.wang@gmail.com"
+  },
+  "repository": "/sentry-go-handbook",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
