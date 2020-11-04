@@ -72,7 +72,9 @@ module.exports = {
           children: [
             '',
             'identify-user',
-            'tags'
+            'tags',
+            'breadcrumbs',
+            'user-feedback'
           ]
         }
       ]
