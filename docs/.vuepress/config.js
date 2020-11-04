@@ -34,12 +34,8 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
+        text: '指南',
         link: '/guide/',
-      },
-      {
-        text: 'Enriching Events',
-        link: '/enriching-events/',
       },
       // {
       //   text: 'Config',
@@ -54,7 +50,7 @@ module.exports = {
       '/guide/': [
         {
           title: '指南',
-          collapsable: true,
+          collapsable: false,
           children: [
             '',
             'handing-panics',
@@ -63,14 +59,12 @@ module.exports = {
             'serverless',
             'migration'
           ]
-        }
-      ],
-      '/enriching-events/': [
+        },
         {
           title: '丰富的事件',
-          collapsable: true,
+          collapsable: false,
           children: [
-            '',
+            'context',
             'identify-user',
             'tags',
             'breadcrumbs',
