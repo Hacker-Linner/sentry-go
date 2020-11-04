@@ -68,7 +68,8 @@ module.exports = {
             'identify-user',
             'tags',
             'breadcrumbs',
-            'user-feedback'
+            'user-feedback',
+            'scope'
           ]
         }
       ]
