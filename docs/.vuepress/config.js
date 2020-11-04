@@ -69,7 +69,7 @@ module.exports = {
             'tags',
             'breadcrumbs',
             'user-feedback',
-            'scope'
+            'scopes'
           ]
         }
       ]
